@@ -224,11 +224,37 @@ avg_reading_scores <- c(avgReadingEthnicityA, avgReadingEthnicityB, avgReadingEt
 avg_writing_scores <- c(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)
 avg_math_scores <- c(avgMathEthnicityA, avgMathEthnicityB, avgMathEthnicityC, avgMathEthnicityD, avgMathEthnicityE)
 
+
+
+
 print(ethnicities)
 print(avg_math_scores)
 print(avg_reading_scores)
 print(avg_writing_scores)
 
+print(mathMean)
+print(readingMean)
+print(writingMean)
+
 ```
 
-`r avgWritingEthnicityE` is Es  writing avg
+- someone add something more about this im done for now
+
+# Effects of Parents Education Level on Scores
+#### there are in this data set: 
+#### some highschool, highschool, some college, associates, bachelors, masters
+
+ we will now compare the scores based off of the parents education level.
+
+ ```{r}
+ReadingByEducation<-students %>%
+  group_by(`parental level of education`) %>%
+  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
+
+WritingByEducation<-students %>%
+  group_by(`parental level of education`) %>%
+  summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
+
+MathByEducation<-students %>%
+    group_by(`parental level of education`) %>%
+    summarise(avg_math_score = mean(`math score`, na.rm = TRUE))

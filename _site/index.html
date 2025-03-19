@@ -162,6 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
   </ul></li>
   <li><a href="#effect-of-ethnicity-on-scores" id="toc-effect-of-ethnicity-on-scores" class="nav-link" data-scroll-target="#effect-of-ethnicity-on-scores">Effect of Ethnicity on Scores</a></li>
+  <li><a href="#effects-of-parents-education-level-on-scores" id="toc-effects-of-parents-education-level-on-scores" class="nav-link" data-scroll-target="#effects-of-parents-education-level-on-scores">Effects of Parents Education Level on Scores</a></li>
   </ul>
 </nav>
     </div>
@@ -484,7 +485,10 @@ Attaching package: 'dplyr'</code></pre>
 <span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)</span>
 <span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgMathEthnicityA, avgMathEthnicityB, avgMathEthnicityC, avgMathEthnicityD, avgMathEthnicityE)</span>
 <span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ethnicities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ethnicities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "A" "B" "C" "D" "E"</code></pre>
 </div>
@@ -500,8 +504,35 @@ Attaching package: 'dplyr'</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62.67416 65.60000 67.82759 70.14504 71.40714</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mathMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.089</code></pre>
 </div>
-<p>71.4071429 is Es writing avg</p>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(readingMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 69.169</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(writingMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 68.054</code></pre>
+</div>
+</div>
+<ul>
+<li>someone add something more about this im done for now</li>
+</ul>
+</section>
+</section>
+<section id="effects-of-parents-education-level-on-scores" class="level1">
+<h1>Effects of Parents Education Level on Scores</h1>
+<section id="there-are-in-this-data-set" class="level4">
+<h4 class="anchored" data-anchor-id="there-are-in-this-data-set">there are in this data set:</h4>
+</section>
+<section id="some-highschool-highschool-some-college-associates-bachelors-masters" class="level4">
+<h4 class="anchored" data-anchor-id="some-highschool-highschool-some-college-associates-bachelors-masters">some highschool, highschool, some college, associates, bachelors, masters</h4>
+<p>we will now compare the scores based off of the parents education level.</p>
+<p>ReadingByEducation&lt;-students %&gt;% group_by(<code>parental level of education</code>) %&gt;% summarise(avg_reading_score = mean(<code>reading score</code>, na.rm = TRUE))</p>
+<p>WritingByEducation&lt;-students %&gt;% group_by(<code>parental level of education</code>) %&gt;% summarise(avg_writing_score = mean(<code>writing score</code>, na.rm = TRUE))</p>
+<p>MathByEducation&lt;-students %&gt;% group_by(<code>parental level of education</code>) %&gt;% summarise(avg_math_score = mean(<code>math score</code>, na.rm = TRUE))</p>
 
 
 </section>
