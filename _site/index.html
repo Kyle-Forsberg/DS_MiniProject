@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.40">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,10 +69,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6bd9cfa162949bde0a231f530c97869d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -157,7 +157,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#here-are-the-results" id="toc-here-are-the-results" class="nav-link" data-scroll-target="#here-are-the-results">Here are the results:</a></li>
   </ul></li>
-  <li><a href="#effect-of-gender-on-scores" id="toc-effect-of-gender-on-scores" class="nav-link" data-scroll-target="#effect-of-gender-on-scores">Effect of Gender on Scores</a></li>
+  <li><a href="#effect-of-gender-on-scores" id="toc-effect-of-gender-on-scores" class="nav-link" data-scroll-target="#effect-of-gender-on-scores">Effect of Gender on Scores</a>
+  <ul class="collapse">
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  </ul></li>
+  <li><a href="#effect-of-ethnicity-on-scores" id="toc-effect-of-ethnicity-on-scores" class="nav-link" data-scroll-target="#effect-of-ethnicity-on-scores">Effect of Ethnicity on Scores</a></li>
   </ul>
 </nav>
     </div>
@@ -226,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"../datas/StudentsPerformance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./datas/StudentsPerformance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 1000 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
@@ -349,16 +353,158 @@ Attaching package: 'dplyr'</code></pre>
 </section>
 <section id="effect-of-gender-on-scores" class="level1">
 <h1>Effect of Gender on Scores</h1>
-<p>ReadingByGender&lt;-students %&gt;% group_by(<code>gender</code>) %&gt;% summarise(avg_reading_score = mean(<code>reading score</code>, na.rm = TRUE))</p>
-<p>WritingByGender&lt;-students %&gt;% group_by(<code>gender</code>) %&gt;% summarise(avg_writing_score = mean(<code>writing score</code>, na.rm = TRUE))</p>
-<p>MathByGender&lt;-students %&gt;% group_by(<code>gender</code>) %&gt;% summarise(avg_math_score = mean(<code>math score</code>, na.rm = TRUE))</p>
-<p>print(MathByGender) print(ReadingByGender) print(WritingByGender)</p>
-<p>avg_writing_male &lt;- WritingByGender %&gt;% filter(<code>gender</code> == “male”) %&gt;% pull(avg_writing_score) avg_writing_female &lt;- WritingByGender %&gt;% filter(<code>gender</code> == “female”) %&gt;% pull(avg_writing_score)</p>
-<p>avg_reading_male &lt;- ReadingByGender %&gt;% filter(<code>gender</code> == “male”) %&gt;% pull(avg_reading_score) avg_reading_female &lt;- ReadingByGender %&gt;% filter(<code>gender</code> == “female”) %&gt;% pull(avg_reading_score)</p>
-<p>avg_math_male &lt;- MathByGender %&gt;% filter(<code>gender</code> == “male”) %&gt;% pull(avg_math_score) avg_math_female &lt;- MathByGender %&gt;% filter(<code>gender</code> == “female”) %&gt;% pull(avg_math_score)</p>
-<p>print(avg_math_male) print(avg_math_female) print(avg_reading_male) print(avg_reading_female) print(avg_writing_male) print(avg_writing_female)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ReadingByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>WritingByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>MathByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(MathByGender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  gender avg_math_score
+  &lt;chr&gt;           &lt;dbl&gt;
+1 female           63.6
+2 male             68.7</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByGender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  gender avg_reading_score
+  &lt;chr&gt;              &lt;dbl&gt;
+1 female              72.6
+2 male                65.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(WritingByGender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  gender avg_writing_score
+  &lt;chr&gt;              &lt;dbl&gt;
+1 female              72.5
+2 male                63.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>avg_writing_male <span class="ot">&lt;-</span> WritingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>avg_writing_female <span class="ot">&lt;-</span> WritingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>avg_reading_male <span class="ot">&lt;-</span> ReadingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>avg_reading_female <span class="ot">&lt;-</span> ReadingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>avg_math_male <span class="ot">&lt;-</span> MathByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>avg_math_female <span class="ot">&lt;-</span> MathByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_math_male)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 68.72822</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_math_female)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 63.6332</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_reading_male)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 65.47303</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_reading_female)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 72.60811</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_writing_male)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 63.3112</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_writing_female)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 72.46718</code></pre>
+</div>
+</div>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The effects of gender on test scores are very interesting</p>
+<ul>
+<li><p>In Mathematics, the males pull ahead by 5.0950111%</p></li>
+<li><p>In Reading and writing, the females win by a large gap</p>
+<ul>
+<li><p>Reading: 7.1350791% win for females</p></li>
+<li><p>Writing: 9.1559781% win for females</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="effect-of-ethnicity-on-scores" class="level1">
+<h1>Effect of Ethnicity on Scores</h1>
+<section id="for-this-data-set-there-are-5-ethnicities-listed-they-are-listed-ethnicities-a-b-c-d-e" class="level4">
+<h4 class="anchored" data-anchor-id="for-this-data-set-there-are-5-ethnicities-listed-they-are-listed-ethnicities-a-b-c-d-e">For this data set, there are 5 Ethnicities listed, they are Listed ethnicities A, B, C, D, E</h4>
+<ul>
+<li><p>To determine whether certain ethnicities accel in certain subjects, we need to compare an</p></li>
+<li><p>ethnicity’s average score for each subject and the global score for that subject</p></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>ReadingByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>WritingByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>MathByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityA<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityB<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityC<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityD<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityE<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityA<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityB<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityC<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityD<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityE<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityA<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityB<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityC<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityD<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityE<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>ethnicities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>,<span class="st">"E"</span>)</span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgReadingEthnicityA, avgReadingEthnicityB, avgReadingEthnicityC, avgReadingEthnicityD, avgReadingEthnicityE)</span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgMathEthnicityA, avgMathEthnicityB, avgMathEthnicityC, avgMathEthnicityD, avgMathEthnicityE)</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ethnicities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "A" "B" "C" "D" "E"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_math_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 61.62921 63.45263 64.46395 67.36260 73.82143</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_reading_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 64.67416 67.35263 69.10345 70.03053 73.02857</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_writing_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 62.67416 65.60000 67.82759 70.14504 71.40714</code></pre>
+</div>
+</div>
+<p>71.4071429 is Es writing avg</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

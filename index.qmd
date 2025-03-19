@@ -53,7 +53,7 @@ title: "What Factors Determine a Students Success?"
 
 library(ggplot2)
 
-students <- readr::read_csv("../datas/StudentsPerformance.csv")
+students <- readr::read_csv("./datas/StudentsPerformance.csv")
 readingMean <- mean(students$'reading score', na.rm = TRUE)
 writingMean <- mean(students$'writing score', na.rm = TRUE)
 mathMean <- mean(students$'math score', na.rm = TRUE)
@@ -161,3 +161,74 @@ print(avg_writing_male)
 print(avg_writing_female)
 
 
+```
+
+## Results
+
+The effects of gender on test scores are very interesting
+
+- In Mathematics, the males pull ahead by `r avg_math_male - avg_math_female`%
+
+- In Reading and writing, the females win by a large gap
+
+  - Reading: `r avg_reading_female - avg_reading_male`% win for females
+
+  - Writing: `r avg_writing_female - avg_writing_male`% win for females
+
+
+# Effect of Ethnicity on Scores
+
+#### For this data set, there are 5 Ethnicities listed, they are Listed ethnicities A, B, C, D, E
+
+
+- To determine whether certain ethnicities accel in certain subjects, we need to compare an 
+
+- ethnicity's average score for each subject and the global score for that subject
+
+```{r}
+
+library(dplyr)
+
+ReadingByEthnicity<-students %>%
+  group_by(`race/ethnicity`) %>%
+  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
+
+WritingByEthnicity<-students %>%
+  group_by(`race/ethnicity`) %>%
+  summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
+
+MathByEthnicity<-students %>%
+    group_by(`race/ethnicity`) %>%
+    summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
+
+avgMathEthnicityA<-MathByEthnicity %>% filter(`race/ethnicity` == "group A") %>% pull(avg_math_score)
+avgMathEthnicityB<-MathByEthnicity %>% filter(`race/ethnicity` == "group B") %>% pull(avg_math_score)
+avgMathEthnicityC<-MathByEthnicity %>% filter(`race/ethnicity` == "group C") %>% pull(avg_math_score)
+avgMathEthnicityD<-MathByEthnicity %>% filter(`race/ethnicity` == "group D") %>% pull(avg_math_score)
+avgMathEthnicityE<-MathByEthnicity %>% filter(`race/ethnicity` == "group E") %>% pull(avg_math_score)
+
+avgReadingEthnicityA<-ReadingByEthnicity %>% filter(`race/ethnicity` == "group A") %>% pull(avg_reading_score)
+avgReadingEthnicityB<-ReadingByEthnicity %>% filter(`race/ethnicity` == "group B") %>% pull(avg_reading_score)
+avgReadingEthnicityC<-ReadingByEthnicity %>% filter(`race/ethnicity` == "group C") %>% pull(avg_reading_score)
+avgReadingEthnicityD<-ReadingByEthnicity %>% filter(`race/ethnicity` == "group D") %>% pull(avg_reading_score)
+avgReadingEthnicityE<-ReadingByEthnicity %>% filter(`race/ethnicity` == "group E") %>% pull(avg_reading_score)
+
+avgWritingEthnicityA<-WritingByEthnicity %>% filter(`race/ethnicity` == "group A") %>% pull(avg_writing_score)
+avgWritingEthnicityB<-WritingByEthnicity %>% filter(`race/ethnicity` == "group B") %>% pull(avg_writing_score)
+avgWritingEthnicityC<-WritingByEthnicity %>% filter(`race/ethnicity` == "group C") %>% pull(avg_writing_score)
+avgWritingEthnicityD<-WritingByEthnicity %>% filter(`race/ethnicity` == "group D") %>% pull(avg_writing_score)
+avgWritingEthnicityE<-WritingByEthnicity %>% filter(`race/ethnicity` == "group E") %>% pull(avg_writing_score)
+
+ethnicities <- c("A", "B", "C", "D","E")
+avg_reading_scores <- c(avgReadingEthnicityA, avgReadingEthnicityB, avgReadingEthnicityC, avgReadingEthnicityD, avgReadingEthnicityE)
+avg_writing_scores <- c(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)
+avg_math_scores <- c(avgMathEthnicityA, avgMathEthnicityB, avgMathEthnicityC, avgMathEthnicityD, avgMathEthnicityE)
+
+print(ethnicities)
+print(avg_math_scores)
+print(avg_reading_scores)
+print(avg_writing_scores)
+
+```
+
+`r avgWritingEthnicityE` is Es  writing avg
