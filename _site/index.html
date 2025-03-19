@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -116,6 +150,12 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#chose-data" id="toc-chose-data" class="nav-link" data-scroll-target="#chose-data">Chose Data:</a></li>
   <li><a href="#clean-data" id="toc-clean-data" class="nav-link" data-scroll-target="#clean-data">Clean Data</a></li>
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
+  <li><a href="#process-data" id="toc-process-data" class="nav-link" data-scroll-target="#process-data">Process Data</a>
+  <ul class="collapse">
+  <li><a href="#now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" id="toc-now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" class="nav-link" data-scroll-target="#now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes">Now that we have all of our means, we can start seeing where the variations lie within attributes</a></li>
+  </ul></li>
+  <li><a href="#here-are-the-results" id="toc-here-are-the-results" class="nav-link" data-scroll-target="#here-are-the-results">Here are the results:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -147,8 +187,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="chose-data" class="level2">
 <h2 class="anchored" data-anchor-id="chose-data">Chose Data:</h2>
 <ul>
-<li><p>we really wanted to find a data set that would apply to us and could giv eus results that we would care about</p></li>
-<li><p>all of us here surely want to get good grades and do well on exams, so we decided to use that Data set.</p></li>
+<li><p>we really wanted to find a data set that would apply to us and could give us results that we would care about</p></li>
+<li><p>We were all interested to see how a students environment effected their success in school</p></li>
+<li><p>Results could be used to paint a better picture for where external funding should go for students falling behind.</p></li>
 </ul>
 </section>
 <section id="clean-data" class="level2">
@@ -156,6 +197,156 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>This data set was relatively small, only 1000 entries, so there really was not that much garbage to clean out</p></li>
 <li><p>all exam scores ranged from 0-100, and every student had a full attribute list.</p></li>
+</ul>
+</section>
+<section id="goals" class="level2">
+<h2 class="anchored" data-anchor-id="goals">Goals</h2>
+<ul>
+<li><p>The goal of our project was to use the data to determine which attributes of the students were most important</p></li>
+<li><p>There are 5 attributes in this data set</p>
+<ul>
+<li><p>Gender</p></li>
+<li><p>Ethnicity</p></li>
+<li><p>Education Level of the students parents</p></li>
+<li><p>Whether they were enrolled in some sort of school lunch program</p></li>
+<li><p>If they took any preparation courses for the exam</p></li>
+</ul></li>
+<li><p>We needed to compare all of these to decide which one was the most important factor in each of the 3 subjects and overall.</p></li>
+</ul>
+</section>
+<section id="process-data" class="level2">
+<h2 class="anchored" data-anchor-id="process-data">Process Data</h2>
+<ul>
+<li><p>First we needed some baseline averages for each category so we have a reference to work with</p></li>
+<li><p>We used R to go through each column and find an average score for each section, and a average total score</p></li>
+<li><p>We then modeled each attribute to show its frequency in the data so we had a better idea as to what the population looked like</p></li>
+<li></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello world"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"../datas/StudentsPerformance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1000 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): gender, race/ethnicity, parental level of education, lunch, test pr...
+dbl (3): math score, reading score, writing score
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>readingMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'reading score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>writingMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'writing score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mathMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'math score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,000 × 8
+   gender `race/ethnicity` parental level of educ…¹ lunch test preparation cou…²
+   &lt;chr&gt;  &lt;chr&gt;            &lt;chr&gt;                    &lt;chr&gt; &lt;chr&gt;                 
+ 1 female group B          bachelor's degree        stan… none                  
+ 2 female group C          some college             stan… completed             
+ 3 female group B          master's degree          stan… none                  
+ 4 male   group A          associate's degree       free… none                  
+ 5 male   group C          some college             stan… none                  
+ 6 female group B          associate's degree       stan… none                  
+ 7 female group B          some college             stan… completed             
+ 8 male   group B          some college             free… none                  
+ 9 male   group D          high school              free… completed             
+10 female group B          high school              free… none                  
+# ℹ 990 more rows
+# ℹ abbreviated names: ¹​`parental level of education`,
+#   ²​`test preparation course`
+# ℹ 3 more variables: `math score` &lt;dbl&gt;, `reading score` &lt;dbl&gt;,
+#   `writing score` &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<section id="reading-mean" class="level4">
+<h4 class="anchored" data-anchor-id="reading-mean">Reading Mean:</h4>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 69.169</code></pre>
+</div>
+</div>
+</section>
+<section id="writing-mean" class="level4">
+<h4 class="anchored" data-anchor-id="writing-mean">Writing Mean:</h4>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 68.054</code></pre>
+</div>
+</div>
+</section>
+<section id="math-mean" class="level4">
+<h4 class="anchored" data-anchor-id="math-mean">Math Mean:</h4>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.089</code></pre>
+</div>
+</div>
+</section>
+<section id="now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes">Now that we have all of our means, we can start seeing where the variations lie within attributes</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByPrep<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  `test preparation course` avg_reading_score
+  &lt;chr&gt;                                 &lt;dbl&gt;
+1 completed                              73.9
+2 none                                   66.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>avg_reading_completed <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>avg_reading_none <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>MathByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>avg_math_completed <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>avg_math_none <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>WritingByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>avg_writing_completed <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>avg_writing_none <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="here-are-the-results" class="level2">
+<h2 class="anchored" data-anchor-id="here-are-the-results">Here are the results:</h2>
+<ul>
+<li><p>There was a 7.3595868% increase for reading scores when prep courses were taken</p></li>
+<li><p>There was a 9.9143215% increase for writing scores when prep courses were taken</p></li>
+<li><p>There was a 5.6176491% increase for math scores when prep courses were taken</p></li>
 </ul>
 
 
