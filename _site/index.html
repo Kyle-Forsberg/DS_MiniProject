@@ -157,6 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#here-are-the-results" id="toc-here-are-the-results" class="nav-link" data-scroll-target="#here-are-the-results">Here are the results:</a></li>
   </ul></li>
+  <li><a href="#effect-of-gender-on-scores" id="toc-effect-of-gender-on-scores" class="nav-link" data-scroll-target="#effect-of-gender-on-scores">Effect of Gender on Scores</a></li>
   </ul>
 </nav>
     </div>
@@ -225,11 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"hello world"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "hello world"</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"../datas/StudentsPerformance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>students <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"../datas/StudentsPerformance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 1000 Columns: 8
 ── Column specification ────────────────────────────────────────────────────────
@@ -240,9 +237,9 @@ dbl (3): math score, reading score, writing score
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>readingMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'reading score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>writingMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'writing score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mathMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'math score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>readingMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'reading score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>writingMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'writing score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mathMean <span class="ot">&lt;-</span> <span class="fu">mean</span>(students<span class="sc">$</span><span class="st">'math score'</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -293,7 +290,7 @@ dbl (3): math score, reading score, writing score
 <section id="now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" class="level3">
 <h3 class="anchored" data-anchor-id="now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes">Now that we have all of our means, we can start seeing where the variations lie within attributes</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
@@ -308,10 +305,10 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByPrep<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByPrep<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   `test preparation course` avg_reading_score
@@ -319,25 +316,25 @@ Attaching package: 'dplyr'</code></pre>
 1 completed                              73.9
 2 none                                   66.5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>avg_reading_completed <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>avg_reading_none <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>avg_reading_completed <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>avg_reading_none <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>MathByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>avg_math_completed <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>avg_math_none <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>MathByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>avg_math_completed <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>avg_math_none <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>WritingByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>avg_writing_completed <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>avg_writing_none <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>WritingByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>avg_writing_completed <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>avg_writing_none <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -348,9 +345,20 @@ Attaching package: 'dplyr'</code></pre>
 <li><p>There was a 9.9143215% increase for writing scores when prep courses were taken</p></li>
 <li><p>There was a 5.6176491% increase for math scores when prep courses were taken</p></li>
 </ul>
-
-
 </section>
+</section>
+<section id="effect-of-gender-on-scores" class="level1">
+<h1>Effect of Gender on Scores</h1>
+<p>ReadingByGender&lt;-students %&gt;% group_by(<code>gender</code>) %&gt;% summarise(avg_reading_score = mean(<code>reading score</code>, na.rm = TRUE))</p>
+<p>WritingByGender&lt;-students %&gt;% group_by(<code>gender</code>) %&gt;% summarise(avg_writing_score = mean(<code>writing score</code>, na.rm = TRUE))</p>
+<p>MathByGender&lt;-students %&gt;% group_by(<code>gender</code>) %&gt;% summarise(avg_math_score = mean(<code>math score</code>, na.rm = TRUE))</p>
+<p>print(MathByGender) print(ReadingByGender) print(WritingByGender)</p>
+<p>avg_writing_male &lt;- WritingByGender %&gt;% filter(<code>gender</code> == “male”) %&gt;% pull(avg_writing_score) avg_writing_female &lt;- WritingByGender %&gt;% filter(<code>gender</code> == “female”) %&gt;% pull(avg_writing_score)</p>
+<p>avg_reading_male &lt;- ReadingByGender %&gt;% filter(<code>gender</code> == “male”) %&gt;% pull(avg_reading_score) avg_reading_female &lt;- ReadingByGender %&gt;% filter(<code>gender</code> == “female”) %&gt;% pull(avg_reading_score)</p>
+<p>avg_math_male &lt;- MathByGender %&gt;% filter(<code>gender</code> == “male”) %&gt;% pull(avg_math_score) avg_math_female &lt;- MathByGender %&gt;% filter(<code>gender</code> == “female”) %&gt;% pull(avg_math_score)</p>
+<p>print(avg_math_male) print(avg_math_female) print(avg_reading_male) print(avg_reading_female) print(avg_writing_male) print(avg_writing_female)</p>
+
+
 </section>
 
 </main> <!-- /main -->

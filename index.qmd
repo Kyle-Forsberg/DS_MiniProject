@@ -53,8 +53,6 @@ title: "What Factors Determine a Students Success?"
 
 library(ggplot2)
 
-print("hello world")
-
 students <- readr::read_csv("../datas/StudentsPerformance.csv")
 readingMean <- mean(students$'reading score', na.rm = TRUE)
 writingMean <- mean(students$'writing score', na.rm = TRUE)
@@ -125,18 +123,41 @@ avg_writing_none <- WritingByPrep %>% filter(`test preparation course` == "none"
 
 -   There was a `r avg_math_completed - avg_math_none`% increase for math scores when prep courses were taken
 
+# Effect of Gender on Scores
+
+```{r}
+
+ReadingByGender<-students %>%
+  group_by(`gender`) %>%
+  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
+
+WritingByGender<-students %>%
+  group_by(`gender`) %>%
+  summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
+
+MathByGender<-students %>%
+    group_by(`gender`) %>%
+    summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
+
+print(MathByGender)
+print(ReadingByGender)
+print(WritingByGender)
+
+avg_writing_male <- WritingByGender %>% filter(`gender` == "male") %>% pull(avg_writing_score)
+avg_writing_female <- WritingByGender %>% filter(`gender` == "female") %>% pull(avg_writing_score)
+
+avg_reading_male <- ReadingByGender %>% filter(`gender` == "male") %>% pull(avg_reading_score)
+avg_reading_female <- ReadingByGender %>% filter(`gender` == "female") %>% pull(avg_reading_score)
+
+avg_math_male <- MathByGender %>% filter(`gender` == "male") %>% pull(avg_math_score)
+avg_math_female <- MathByGender %>% filter(`gender` == "female") %>% pull(avg_math_score)
 
 
-
-
-
-
-
-
-
-
-
-
-
+print(avg_math_male)
+print(avg_math_female)
+print(avg_reading_male)
+print(avg_reading_female)
+print(avg_writing_male)
+print(avg_writing_female)
 
 
