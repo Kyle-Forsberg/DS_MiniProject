@@ -265,7 +265,6 @@ avgMathsomeHighschool<-MathByEducation %>% filter(`parental level of education` 
 avgReadingsomeHighschool<-ReadingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_reading_score)
 avgWritingsomeHighschool<-WritingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_writing_score)
 
-
 avgMathsHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
 avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
 avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
@@ -287,14 +286,38 @@ avgReadingBachelors<-ReadingByEducation %>% filter(`parental level of education`
 avgWritingBachelors<-WritingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_writing_score)
 
 avgMathMasters<-MathByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_math_score)
-avgReadingMasterss<-ReadingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_reading_score)
-avgWritingMasterss<-WritingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_writing_score)
+avgReadingMasters<-ReadingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_reading_score)
+avgWritingMasters<-WritingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_writing_score)
 
 
 ``` 
+Whole Lot of brute force in those calculations but we have our data, now to the graphs...
+
+```{r}
+readingByEducation <- c(avgReadingsomeHighschool, avgReadingHighschool, avgReadingSomeCollege, avgReadingAssociates, avgReadingBachelors, avgReadingMasters)
+writingByEducation <- c(avgWritingsomeHighschool, avgWritingHighschool, avgWritingSomeCollege, avgWritingAssociates, avgWritingBachelors, avgWritingMasters)
+mathByEducation <- c(avgMathsomeHighschool, avgMathHighschool, avgMathSomeCollege, avgMathAssociates, avgMathBachelors, avgMathMasters)
+education_levels <- c("Some High School", "High School", "Some College", "Associates", "Bachelors", "Masters")
+
+df <- tibble(
+  Education = factor(rep(education_levels, 3), levels = education_levels),  # Set factor levels explicitly
+  Subject = rep(c("Reading", "Writing", "Math"), each = length(education_levels)),  # Repeat subjects
+  Score = c(readingByEducation, writingByEducation, mathByEducation)  # Combine all scores
+)
+
+ggplot(df, aes(x = Education, y = Score, fill = Subject)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Scores by Education Level",
+       x = "Education Level",
+       y = "Average Score") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+```
+
+As we see there is a general trend upwards in all scores comapring with the education level of the parents
+
+notably those whose parents who did finish highscool did not score as well as those who did not finsih highschool.
 
 
 
 
-
-hiii justin :) 
