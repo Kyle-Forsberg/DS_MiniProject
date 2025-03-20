@@ -78,6 +78,7 @@ print(students)
 # Effects of Prep Courses on Scores
 
 ```{r}
+#| echo: false
 library(dplyr)
 print(ReadingByPrep<-students %>%
   group_by(`test preparation course`) %>%
@@ -91,6 +92,8 @@ avg_reading_none <- ReadingByPrep %>% filter(`test preparation course` == "none"
 
 ```{r}
 library(dplyr)
+#| echo: false
+
 MathByPrep <- students %>%
   group_by(`test preparation course`) %>%
   summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
@@ -101,6 +104,8 @@ avg_math_none <- MathByPrep %>% filter(`test preparation course` == "none") %>% 
 
 
 ```{r}
+#| echo: false
+
 WritingByPrep <- students %>%
   group_by(`test preparation course`) %>%
   summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
@@ -120,14 +125,6 @@ df <- tibble(
   Score = c(avg_reading_scores, avg_writing_scores, avg_math_scores)  
 )
 
-ggplot(df, aes(x = Prep_Course, y = Score, fill = Subject)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Average Scores by Test Preparation Course",
-       x = "Test Preparation Course",
-       y = "Average Score") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
 
 ```
 
@@ -144,6 +141,7 @@ ggplot(df, aes(x = Prep_Course, y = Score, fill = Subject)) +
 # Effect of Gender on Scores
 
 ```{r}
+#| echo: false
 
 ReadingByGender<-students %>%
   group_by(`gender`) %>%
@@ -221,6 +219,7 @@ The effects of gender on test scores are very interesting
 - ethnicity's average score for each subject and the global score for that subject
 
 ```{r}
+#| echo: false
 
 library(dplyr)
 
@@ -265,24 +264,6 @@ df <- tibble(
   Score = c(avg_reading_scores, avg_writing_scores, avg_math_scores)  # Combine all scores
 )
 
-ggplot(df, aes(x = Ethnicity, y = Score, fill = Subject)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Average Scores by Ethnicity",
-       x = "Ethnicity",
-       y = "Average Score") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
-
-print(ethnicities)
-print(avg_math_scores)
-print(avg_reading_scores)
-print(avg_writing_scores)
-
-print(mathMean)
-print(readingMean)
-print(writingMean)
-
 ```
 
 - someone add something more about this im done for now
@@ -294,6 +275,8 @@ print(writingMean)
  we will now compare the scores based off of the parents education level.
 
 ```{r}
+#| echo: false
+
 ReadingByEducation<-students %>%
   group_by(`parental level of education`) %>%
   summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
@@ -341,6 +324,8 @@ avgWritingMasters<-WritingByEducation %>% filter(`parental level of education` =
 Whole Lot of brute force in those calculations but we have our data, now to the graphs...
 
 ```{r}
+#| echo: false
+
 readingByEducation <- c(avgReadingsomeHighschool, avgReadingHighschool, avgReadingSomeCollege, avgReadingAssociates, avgReadingBachelors, avgReadingMasters)
 writingByEducation <- c(avgWritingsomeHighschool, avgWritingHighschool, avgWritingSomeCollege, avgWritingAssociates, avgWritingBachelors, avgWritingMasters)
 mathByEducation <- c(avgMathsomeHighschool, avgMathHighschool, avgMathSomeCollege, avgMathAssociates, avgMathBachelors, avgMathMasters)
@@ -352,13 +337,7 @@ df <- tibble(
   Score = c(readingByEducation, writingByEducation, mathByEducation)  # Combine all scores
 )
 
-ggplot(df, aes(x = Education, y = Score, fill = Subject)) +
-  geom_bar(stat = "identity", position = "dodge") +
-  labs(title = "Average Scores by Education Level",
-       x = "Education Level",
-       y = "Average Score") +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
+
 ```
 
 As we see there is a general trend upwards in all scores comapring with the education level of the parents
@@ -395,7 +374,7 @@ newSP |>
     theme_minimal()+
 
     theme(
-
+      
     axis.title.x = element_blank(),
 
     axis.text.x = element_blank(),
@@ -428,13 +407,13 @@ newSP |>
 
     )
 
- 
+ education <- c('some high school', 'high school', 'some college', "associate's degree", "bachelor's degree", "master's degree")
 
 newSP |>
 
     filter(variable == 'parental level of education') |>
 
-    ggplot(aes(y=mean_score, x = category, fill=category))+
+    ggplot(aes(y=mean_score, x = factor(category, education), fill=category))+
 
     geom_boxplot(color = "black")+
 
