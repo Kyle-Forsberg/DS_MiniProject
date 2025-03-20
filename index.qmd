@@ -246,7 +246,7 @@ print(writingMean)
 
  we will now compare the scores based off of the parents education level.
 
- ```{r}
+```{r}
 ReadingByEducation<-students %>%
   group_by(`parental level of education`) %>%
   summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
@@ -258,3 +258,43 @@ WritingByEducation<-students %>%
 MathByEducation<-students %>%
     group_by(`parental level of education`) %>%
     summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
+
+
+
+avgMathsomeHighschool<-MathByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_math_score)
+avgReadingsomeHighschool<-ReadingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_reading_score)
+avgWritingsomeHighschool<-WritingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_writing_score)
+
+
+avgMathsHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
+avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
+avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
+
+avgMathHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
+avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
+avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
+
+avgMathSomeCollege<-MathByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_math_score)
+avgReadingSomeCollege<-ReadingByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_reading_score)
+avgWritingSomeCollege<-WritingByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_writing_score)
+
+avgMathAssociates<-MathByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_math_score)
+avgReadingAssociates<-ReadingByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_reading_score)
+avgWritingAssociates<-WritingByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_writing_score)
+
+avgMathBachelors<-MathByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_math_score)
+avgReadingBachelors<-ReadingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_reading_score)
+avgWritingBachelors<-WritingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_writing_score)
+
+avgMathMasters<-MathByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_math_score)
+avgReadingMasterss<-ReadingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_reading_score)
+avgWritingMasterss<-WritingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_writing_score)
+
+
+``` 
+
+
+
+
+
+hiii justin :) 
