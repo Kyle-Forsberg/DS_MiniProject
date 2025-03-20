@@ -497,3 +497,23 @@ newSP |>
 ## Results
 
 Students who were not on a school lunch assistance program scored higher than those who were
+
+# Conclusion
+
+- While there are marginal differences between many factors
+
+  - Test preperation had a large effect
+
+  - Ethnicity had a large effect
+
+  - Lunch status had a large effect
+
+- The trend here shows that the greatest factor of how the student would do is likely their parents income
+
+- while we dont have access to that data directly, we have strong reasoning
+
+  - Test preperation courses are expensive
+
+  - Being on a lunch program is generally an indicator of a low income household
+
+  - There is a similar distribution in Ethicity and test score and ethnicity and wealth
