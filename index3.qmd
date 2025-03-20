@@ -5,7 +5,7 @@ title: "What Factors Determine a Students Success?"
 
 # What we did
 
-## Chose Data:
+## Choose Data:
 
 -   we really wanted to find a data set that would apply to us and could give us results that we would care about
 
@@ -18,26 +18,6 @@ title: "What Factors Determine a Students Success?"
 -   This data set was relatively small, only 1000 entries, so there really was not that much garbage to clean out
 
 -   all exam scores ranged from 0-100, and every student had a full attribute list.
-
-
-## Transform Data
-
-```{r}
-library(tidyverse) 
-
-StudentPerformance <- readr::read_csv("./datas/StudentsPerformance.csv")
-
-newSP <- StudentPerformance |>
-
-  mutate(mean_score = (`math score` + `reading score` + `writing score`)/3) |>
-
-  select(-`math score`, -`writing score`, -`reading score`) |>
-
-  pivot_longer(cols = 1:5, names_to = "variable", values_to = "category")
-
-```
-
--   Organize the data into a comprehensive structure
 
 ## Goals
 
@@ -65,7 +45,7 @@ newSP <- StudentPerformance |>
 
 -   We then modeled each attribute to show its frequency in the data so we had a better idea as to what the population looked like
 
--   
+
 
 ```{r}
 #| echo: true
@@ -91,42 +71,26 @@ print(students)
 
 - Mean writing score `r writingMean`
 
-Now that we have all of our means, we can start seeing where the variations lie within attributes
+## Now that we have all of our means, we can start seeing where the variations lie within attributes
 
 
 
-# Effects of Prep Courses on scores
-```{r}
-library(ggplot2)
-
-
-
-newSP |>
-
-    filter(variable == 'test preparation course') |>
-
-    ggplot(aes(y=mean_score, x = category, fill=category))+
-
-    geom_boxplot(color = "black")+
-
-    labs(y = "Average Score",x='', title = "Preparation Course")+
-
-    theme_minimal()+
-
-    theme(
-
-    axis.title.x = element_blank(),
-
-    axis.text.x = element_blank(),
-
-    axis.ticks.x = element_blank()
-
-    )
-```
+# Effects of Prep Courses on Scores
 
 ```{r}
 #| echo: false
+library(dplyr)
+print(ReadingByPrep<-students %>%
+  group_by(`test preparation course`) %>%
+  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
+)
+avg_reading_completed <- ReadingByPrep %>% filter(`test preparation course` == "completed") %>% pull(avg_reading_score)
+avg_reading_none <- ReadingByPrep %>% filter(`test preparation course` == "none") %>% pull(avg_reading_score)
+```
 
+
+
+```{r}
 library(dplyr)
 #| echo: false
 
@@ -142,14 +106,6 @@ avg_math_none <- MathByPrep %>% filter(`test preparation course` == "none") %>% 
 ```{r}
 #| echo: false
 
-
-library(dplyr)
-ReadingByPrep<-students %>%
-  group_by(`test preparation course`) %>%
-  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
-
-avg_reading_completed <- ReadingByPrep %>% filter(`test preparation course` == "completed") %>% pull(avg_reading_score)
-avg_reading_none <- ReadingByPrep %>% filter(`test preparation course` == "none") %>% pull(avg_reading_score)
 WritingByPrep <- students %>%
   group_by(`test preparation course`) %>%
   summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
@@ -172,7 +128,7 @@ df <- tibble(
 
 ```
 
-## Results
+
 
 
 
@@ -182,33 +138,7 @@ df <- tibble(
 
 -   There was a `r avg_math_completed - avg_math_none`% increase for math scores when prep courses were taken
 
-
-# Effects of Gender on scores
-```{r}
-newSP |>
-
-    filter(variable == 'gender') |>
-
-    ggplot(aes(y=mean_score, x = category, fill = category))+
-
-    geom_boxplot(color = "black")+
-
-    labs(y = "Average Score",x='', title = "Gender", fill ='')+
-
-    theme_minimal()+
-
-    theme(
-
-    axis.title.x = element_blank(),
-
-    axis.text.x = element_blank(),
-
-    axis.ticks.x = element_blank()
-
-    )
-```
-
-
+# Effect of Gender on Scores
 
 ```{r}
 #| echo: false
@@ -260,6 +190,10 @@ ggplot(df, aes(x = Gender, y = Score, fill = Subject)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
+
+
+
+
 ```
 
 ## Results
@@ -274,7 +208,15 @@ The effects of gender on test scores are very interesting
 
   - Writing: `r avg_writing_female - avg_writing_male`% win for females
 
-# Effects of ethnicity on scores
+
+# Effect of Ethnicity on Scores
+
+#### For this data set, there are 5 Ethnicities listed, they are Listed ethnicities A, B, C, D, E
+
+
+- To determine whether certain ethnicities accel in certain subjects, we need to compare an 
+
+- ethnicity's average score for each subject and the global score for that subject
 
 ```{r}
 #| echo: false
@@ -311,14 +253,6 @@ avgWritingEthnicityC<-WritingByEthnicity %>% filter(`race/ethnicity` == "group C
 avgWritingEthnicityD<-WritingByEthnicity %>% filter(`race/ethnicity` == "group D") %>% pull(avg_writing_score)
 avgWritingEthnicityE<-WritingByEthnicity %>% filter(`race/ethnicity` == "group E") %>% pull(avg_writing_score)
 
-EthAAvg = (avgMathEthnicityA + avgReadingEthnicityA + avgWritingEthnicityA)/3
-EthBAvg = (avgMathEthnicityB + avgReadingEthnicityB + avgWritingEthnicityB)/3
-EthCAvg = (avgMathEthnicityC + avgReadingEthnicityC + avgWritingEthnicityC)/3
-EthDAvg = (avgMathEthnicityD + avgReadingEthnicityD + avgWritingEthnicityD)/3
-EthEAvg = (avgMathEthnicityE + avgReadingEthnicityE + avgWritingEthnicityE)/3
-
-
-
 ethnicities <- c("A", "B", "C", "D","E")
 avg_reading_scores <- c(avgReadingEthnicityA, avgReadingEthnicityB, avgReadingEthnicityC, avgReadingEthnicityD, avgReadingEthnicityE)
 avg_writing_scores <- c(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)
@@ -332,7 +266,125 @@ df <- tibble(
 
 ```
 
+- someone add something more about this im done for now
+
+# Effects of Parents Education Level on Scores
+#### there are in this data set: 
+#### some highschool, highschool, some college, associates, bachelors, masters
+
+ we will now compare the scores based off of the parents education level.
+
 ```{r}
+#| echo: false
+
+ReadingByEducation<-students %>%
+  group_by(`parental level of education`) %>%
+  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
+
+WritingByEducation<-students %>%
+  group_by(`parental level of education`) %>%
+  summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
+
+MathByEducation<-students %>%
+    group_by(`parental level of education`) %>%
+    summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
+
+
+
+avgMathsomeHighschool<-MathByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_math_score)
+avgReadingsomeHighschool<-ReadingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_reading_score)
+avgWritingsomeHighschool<-WritingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_writing_score)
+
+avgMathsHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
+avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
+avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
+
+avgMathHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
+avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
+avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
+
+avgMathSomeCollege<-MathByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_math_score)
+avgReadingSomeCollege<-ReadingByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_reading_score)
+avgWritingSomeCollege<-WritingByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_writing_score)
+
+avgMathAssociates<-MathByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_math_score)
+avgReadingAssociates<-ReadingByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_reading_score)
+avgWritingAssociates<-WritingByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_writing_score)
+
+avgMathBachelors<-MathByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_math_score)
+avgReadingBachelors<-ReadingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_reading_score)
+avgWritingBachelors<-WritingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_writing_score)
+
+avgMathMasters<-MathByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_math_score)
+avgReadingMasters<-ReadingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_reading_score)
+avgWritingMasters<-WritingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_writing_score)
+
+
+``` 
+Whole Lot of brute force in those calculations but we have our data, now to the graphs...
+
+```{r}
+#| echo: false
+
+readingByEducation <- c(avgReadingsomeHighschool, avgReadingHighschool, avgReadingSomeCollege, avgReadingAssociates, avgReadingBachelors, avgReadingMasters)
+writingByEducation <- c(avgWritingsomeHighschool, avgWritingHighschool, avgWritingSomeCollege, avgWritingAssociates, avgWritingBachelors, avgWritingMasters)
+mathByEducation <- c(avgMathsomeHighschool, avgMathHighschool, avgMathSomeCollege, avgMathAssociates, avgMathBachelors, avgMathMasters)
+education_levels <- c("Some High School", "High School", "Some College", "Associates", "Bachelors", "Masters")
+
+df <- tibble(
+  Education = factor(rep(education_levels, 3), levels = education_levels),  # Set factor levels explicitly
+  Subject = rep(c("Reading", "Writing", "Math"), each = length(education_levels)),  # Repeat subjects
+  Score = c(readingByEducation, writingByEducation, mathByEducation)  # Combine all scores
+)
+
+
+```
+
+As we see there is a general trend upwards in all scores comapring with the education level of the parents
+
+notably those whose parents who did finish highscool did not score as well as those who did not finsih highschool.
+
+
+```{r} 
+
+library(tidyverse) 
+
+StudentPerformance <- readr::read_csv("./datas/StudentsPerformance.csv")
+
+newSP <- StudentPerformance |>
+
+  mutate(mean_score = (`math score` + `reading score` + `writing score`)/3) |>
+
+  select(-`math score`, -`writing score`, -`reading score`) |>
+
+  pivot_longer(cols = 1:5, names_to = "variable", values_to = "category")
+
+ 
+
+newSP |>
+
+    filter(variable == 'gender') |>
+
+    ggplot(aes(y=mean_score, x = category, fill = category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Gender", fill ='')+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
 newSP |>
 
     filter(variable == 'race/ethnicity') |>
@@ -354,22 +406,79 @@ newSP |>
     axis.ticks.x = element_blank()
 
     )
+
+ education <- c('some high school', 'high school', 'some college', "associate's degree", "bachelor's degree", "master's degree")
+
+newSP |>
+
+    filter(variable == 'parental level of education') |>
+
+    ggplot(aes(y=mean_score, x = factor(category, education), fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Level of Parent's Education")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
+newSP |>
+
+    filter(variable == 'lunch') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Type of Lunch")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
+newSP |>
+
+    filter(variable == 'test preparation course') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Preparation Course")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
 ```
 
-## Results
-
-- Ethnicity A avg score : `r EthAAvg`
-
-- Ethnicity B avg score : `r EthBAvg`
-
-- Ethnicity C avg score : `r EthCAvg`
-
-- Ethnicity D avg score : `r EthDAvg`
-
-- Ethnicity E avg score : `r EthEAvg`
-
-
-There is some variation between ethnicities on scores
-
-Ethnicity E has a 9% advantage over Ethnicity A
 
