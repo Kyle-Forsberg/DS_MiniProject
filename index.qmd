@@ -373,3 +373,127 @@ There is some variation between ethnicities on scores
 
 Ethnicity E has a 9% advantage over Ethnicity A
 
+# Effects of Parents Education Level on Scores
+ there are in this data set: 
+ some highschool, highschool, some college, associates, bachelors, masters
+
+
+
+```{r}
+#| echo: false
+
+ReadingByEducation<-students %>%
+  group_by(`parental level of education`) %>%
+  summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
+
+WritingByEducation<-students %>%
+  group_by(`parental level of education`) %>%
+  summarise(avg_writing_score = mean(`writing score`, na.rm = TRUE))
+
+MathByEducation<-students %>%
+    group_by(`parental level of education`) %>%
+    summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
+
+
+
+avgMathsomeHighschool<-MathByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_math_score)
+avgReadingsomeHighschool<-ReadingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_reading_score)
+avgWritingsomeHighschool<-WritingByEducation %>% filter(`parental level of education` == "some high school") %>% pull(avg_writing_score)
+
+avgMathsHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
+avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
+avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
+
+avgMathHighschool<-MathByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_math_score)
+avgReadingHighschool<-ReadingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_reading_score)
+avgWritingHighschool<-WritingByEducation %>% filter(`parental level of education` == "high school") %>% pull(avg_writing_score)
+
+avgMathSomeCollege<-MathByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_math_score)
+avgReadingSomeCollege<-ReadingByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_reading_score)
+avgWritingSomeCollege<-WritingByEducation %>% filter(`parental level of education` == "some college") %>% pull(avg_writing_score)
+
+avgMathAssociates<-MathByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_math_score)
+avgReadingAssociates<-ReadingByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_reading_score)
+avgWritingAssociates<-WritingByEducation %>% filter(`parental level of education` == "associate's degree") %>% pull(avg_writing_score)
+
+avgMathBachelors<-MathByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_math_score)
+avgReadingBachelors<-ReadingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_reading_score)
+avgWritingBachelors<-WritingByEducation %>% filter(`parental level of education` == "bachelor's degree") %>% pull(avg_writing_score)
+
+avgMathMasters<-MathByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_math_score)
+avgReadingMasters<-ReadingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_reading_score)
+avgWritingMasters<-WritingByEducation %>% filter(`parental level of education` == "master's degree") %>% pull(avg_writing_score)
+
+
+``` 
+
+```{r}
+
+
+ education <- c('some high school', 'high school', 'some college', "associate's degree", "bachelor's degree", "master's degree")
+
+ newSP |>
+
+    filter(variable == 'parental level of education') |>
+
+    ggplot(aes(y=mean_score, x = factor(category, education), fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Level of Parent's Education")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+```
+
+## Results
+As we see there is a general trend upwards in all scores comapring with the education level of the parents
+
+notably those whose parents who did finish highscool did not score as well as those who did not finsih highschool.
+
+Children of parents with Masters are noticalbly ahead of those with bachelors
+
+Little change between finishing highschool and a bachelors degree
+
+# Effects of School Lunch Programs on scores
+
+```{r}
+
+newSP |>
+
+    filter(variable == 'lunch') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Type of Lunch")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+```
+
+
+## Results
+
+Students who were not on a school lunch assistance program scored higher than those who were
