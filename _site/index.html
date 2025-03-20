@@ -530,9 +530,20 @@ Attaching package: 'dplyr'</code></pre>
 <section id="some-highschool-highschool-some-college-associates-bachelors-masters" class="level4">
 <h4 class="anchored" data-anchor-id="some-highschool-highschool-some-college-associates-bachelors-masters">some highschool, highschool, some college, associates, bachelors, masters</h4>
 <p>we will now compare the scores based off of the parents education level.</p>
-<p>ReadingByEducation&lt;-students %&gt;% group_by(<code>parental level of education</code>) %&gt;% summarise(avg_reading_score = mean(<code>reading score</code>, na.rm = TRUE))</p>
-<p>WritingByEducation&lt;-students %&gt;% group_by(<code>parental level of education</code>) %&gt;% summarise(avg_writing_score = mean(<code>writing score</code>, na.rm = TRUE))</p>
-<p>MathByEducation&lt;-students %&gt;% group_by(<code>parental level of education</code>) %&gt;% summarise(avg_math_score = mean(<code>math score</code>, na.rm = TRUE))</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>ReadingByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>WritingByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>MathByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>hiii justin :)</p>
 
 
 </section>

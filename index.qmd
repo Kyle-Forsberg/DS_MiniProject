@@ -246,7 +246,7 @@ print(writingMean)
 
  we will now compare the scores based off of the parents education level.
 
- ```{r}
+```{r}
 ReadingByEducation<-students %>%
   group_by(`parental level of education`) %>%
   summarise(avg_reading_score = mean(`reading score`, na.rm = TRUE))
@@ -258,3 +258,6 @@ WritingByEducation<-students %>%
 MathByEducation<-students %>%
     group_by(`parental level of education`) %>%
     summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
+``` 
+
+hiii justin :) 
