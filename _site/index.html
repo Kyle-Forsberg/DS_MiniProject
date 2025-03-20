@@ -152,6 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#clean-data" id="toc-clean-data" class="nav-link" data-scroll-target="#clean-data">Clean Data</a></li>
   <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals">Goals</a></li>
   <li><a href="#process-data" id="toc-process-data" class="nav-link" data-scroll-target="#process-data">Process Data</a></li>
+  <li><a href="#mean-scores" id="toc-mean-scores" class="nav-link" data-scroll-target="#mean-scores">Mean Scores</a></li>
   <li><a href="#now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" id="toc-now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" class="nav-link" data-scroll-target="#now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes">Now that we have all of our means, we can start seeing where the variations lie within attributes</a></li>
   </ul></li>
   <li><a href="#effects-of-prep-courses-on-scores" id="toc-effects-of-prep-courses-on-scores" class="nav-link" data-scroll-target="#effects-of-prep-courses-on-scores">Effects of Prep Courses on Scores</a></li>
@@ -266,30 +267,14 @@ dbl (3): math score, reading score, writing score
 #   `writing score` &lt;dbl&gt;</code></pre>
 </div>
 </div>
-<section id="reading-mean" class="level4">
-<h4 class="anchored" data-anchor-id="reading-mean">Reading Mean:</h4>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 69.169</code></pre>
-</div>
-</div>
 </section>
-<section id="writing-mean" class="level4">
-<h4 class="anchored" data-anchor-id="writing-mean">Writing Mean:</h4>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 68.054</code></pre>
-</div>
-</div>
-</section>
-<section id="math-mean" class="level4">
-<h4 class="anchored" data-anchor-id="math-mean">Math Mean:</h4>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 66.089</code></pre>
-</div>
-</div>
-</section>
+<section id="mean-scores" class="level2">
+<h2 class="anchored" data-anchor-id="mean-scores">Mean Scores</h2>
+<ul>
+<li><p>Mean math score 66.089</p></li>
+<li><p>Mean Reading score 69.169</p></li>
+<li><p>Mean writing score 68.054</p></li>
+</ul>
 </section>
 <section id="now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes" class="level2">
 <h2 class="anchored" data-anchor-id="now-that-we-have-all-of-our-means-we-can-start-seeing-where-the-variations-lie-within-attributes">Now that we have all of our means, we can start seeing where the variations lie within attributes</h2>
@@ -298,7 +283,7 @@ dbl (3): math score, reading score, writing score
 <section id="effects-of-prep-courses-on-scores" class="level1">
 <h1>Effects of Prep Courses on Scores</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>
 Attaching package: 'dplyr'</code></pre>
@@ -313,10 +298,10 @@ Attaching package: 'dplyr'</code></pre>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByPrep<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByPrep<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   `test preparation course` avg_reading_score
@@ -324,49 +309,49 @@ Attaching package: 'dplyr'</code></pre>
 1 completed                              73.9
 2 none                                   66.5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>avg_reading_completed <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>avg_reading_none <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>avg_reading_completed <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>avg_reading_none <span class="ot">&lt;-</span> ReadingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>MathByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>avg_math_completed <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>avg_math_none <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>MathByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>avg_math_completed <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>avg_math_none <span class="ot">&lt;-</span> MathByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>WritingByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>avg_writing_completed <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>avg_writing_none <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>prep_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Completed"</span>, <span class="st">"None"</span>)</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_reading_completed, avg_reading_none)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_writing_completed, avg_writing_none)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_math_completed, avg_math_none)</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Prep_Course =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(prep_levels, <span class="dv">3</span>), <span class="at">levels =</span> prep_levels), </span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(prep_levels)),  </span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(avg_reading_scores, avg_writing_scores, avg_math_scores)  </span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Prep_Course, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Test Preparation Course"</span>,</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Test Preparation Course"</span>,</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>WritingByPrep <span class="ot">&lt;-</span> students <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>avg_writing_completed <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"completed"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>avg_writing_none <span class="ot">&lt;-</span> WritingByPrep <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">test preparation course</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"none"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>prep_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Completed"</span>, <span class="st">"None"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_reading_completed, avg_reading_none)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_writing_completed, avg_writing_none)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_math_completed, avg_math_none)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">Prep_Course =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(prep_levels, <span class="dv">3</span>), <span class="at">levels =</span> prep_levels), </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(prep_levels)),  </span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(avg_reading_scores, avg_writing_scores, avg_math_scores)  </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Prep_Course, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Test Preparation Course"</span>,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Test Preparation Course"</span>,</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -380,76 +365,56 @@ Attaching package: 'dplyr'</code></pre>
 <section id="effect-of-gender-on-scores" class="level1">
 <h1>Effect of Gender on Scores</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ReadingByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>WritingByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>MathByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(MathByGender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  gender avg_math_score
-  &lt;chr&gt;           &lt;dbl&gt;
-1 female           63.6
-2 male             68.7</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ReadingByGender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  gender avg_reading_score
-  &lt;chr&gt;              &lt;dbl&gt;
-1 female              72.6
-2 male                65.5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(WritingByGender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 2
-  gender avg_writing_score
-  &lt;chr&gt;              &lt;dbl&gt;
-1 female              72.5
-2 male                63.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>avg_writing_male <span class="ot">&lt;-</span> WritingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>avg_writing_female <span class="ot">&lt;-</span> WritingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>avg_reading_male <span class="ot">&lt;-</span> ReadingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>avg_reading_female <span class="ot">&lt;-</span> ReadingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>avg_math_male <span class="ot">&lt;-</span> MathByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>avg_math_female <span class="ot">&lt;-</span> MathByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>genders <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_reading_male, avg_reading_female)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_writing_male, avg_writing_female)</span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_math_male, avg_math_female)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(genders, <span class="dv">3</span>), <span class="at">levels =</span> genders),  <span class="co"># Set factor levels explicitly</span></span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(genders)),  <span class="co"># Repeat subjects</span></span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(avg_reading_scores, avg_writing_scores, avg_math_scores)  <span class="co"># Combine all scores</span></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Gender"</span>,</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Gender"</span>,</span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
-<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb23-30"><a href="#cb23-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ReadingByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>WritingByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>MathByGender<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(MathByGender)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ReadingByGender)</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print(WritingByGender)</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>avg_writing_male <span class="ot">&lt;-</span> WritingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>avg_writing_female <span class="ot">&lt;-</span> WritingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>avg_reading_male <span class="ot">&lt;-</span> ReadingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>avg_reading_female <span class="ot">&lt;-</span> ReadingByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>avg_math_male <span class="ot">&lt;-</span> MathByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>avg_math_female <span class="ot">&lt;-</span> MathByGender <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">gender</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>genders <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_reading_male, avg_reading_female)</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_writing_male, avg_writing_female)</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avg_math_male, avg_math_female)</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">Gender =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(genders, <span class="dv">3</span>), <span class="at">levels =</span> genders),  <span class="co"># Set factor levels explicitly</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(genders)),  <span class="co"># Repeat subjects</span></span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(avg_reading_scores, avg_writing_scores, avg_math_scores)  <span class="co"># Combine all scores</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Gender"</span>,</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Gender"</span>,</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -476,88 +441,88 @@ Attaching package: 'dplyr'</code></pre>
 <li><p>ethnicity’s average score for each subject and the global score for that subject</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ReadingByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>WritingByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>MathByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityA<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityB<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityC<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityD<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityE<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityA<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityB<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityC<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityD<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityE<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityA<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityB<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb24-29"><a href="#cb24-29" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityC<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb24-30"><a href="#cb24-30" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityD<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb24-31"><a href="#cb24-31" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityE<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb24-32"><a href="#cb24-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-33"><a href="#cb24-33" aria-hidden="true" tabindex="-1"></a>ethnicities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>,<span class="st">"E"</span>)</span>
-<span id="cb24-34"><a href="#cb24-34" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgReadingEthnicityA, avgReadingEthnicityB, avgReadingEthnicityC, avgReadingEthnicityD, avgReadingEthnicityE)</span>
-<span id="cb24-35"><a href="#cb24-35" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)</span>
-<span id="cb24-36"><a href="#cb24-36" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgMathEthnicityA, avgMathEthnicityB, avgMathEthnicityC, avgMathEthnicityD, avgMathEthnicityE)</span>
-<span id="cb24-37"><a href="#cb24-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-38"><a href="#cb24-38" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb24-39"><a href="#cb24-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ethnicity =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(ethnicities, <span class="dv">3</span>), <span class="at">levels =</span> ethnicities),  <span class="co"># Set factor levels explicitly</span></span>
-<span id="cb24-40"><a href="#cb24-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(ethnicities)),  <span class="co"># Repeat subjects</span></span>
-<span id="cb24-41"><a href="#cb24-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(avg_reading_scores, avg_writing_scores, avg_math_scores)  <span class="co"># Combine all scores</span></span>
-<span id="cb24-42"><a href="#cb24-42" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-43"><a href="#cb24-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-44"><a href="#cb24-44" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Ethnicity, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb24-45"><a href="#cb24-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb24-46"><a href="#cb24-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Ethnicity"</span>,</span>
-<span id="cb24-47"><a href="#cb24-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ethnicity"</span>,</span>
-<span id="cb24-48"><a href="#cb24-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
-<span id="cb24-49"><a href="#cb24-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb24-50"><a href="#cb24-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ReadingByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>WritingByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>MathByEthnicity<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityA<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityB<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityC<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityD<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>avgMathEthnicityE<span class="ot">&lt;-</span>MathByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityA<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityB<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityC<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityD<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>avgReadingEthnicityE<span class="ot">&lt;-</span>ReadingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityA<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group A"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityB<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group B"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityC<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group C"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityD<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group D"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>avgWritingEthnicityE<span class="ot">&lt;-</span>WritingByEthnicity <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">race/ethnicity</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"group E"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>ethnicities <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>,<span class="st">"E"</span>)</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>avg_reading_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgReadingEthnicityA, avgReadingEthnicityB, avgReadingEthnicityC, avgReadingEthnicityD, avgReadingEthnicityE)</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>avg_writing_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgWritingEthnicityA, avgWritingEthnicityB, avgWritingEthnicityC, avgWritingEthnicityD, avgWritingEthnicityE)</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>avg_math_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(avgMathEthnicityA, avgMathEthnicityB, avgMathEthnicityC, avgMathEthnicityD, avgMathEthnicityE)</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">Ethnicity =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(ethnicities, <span class="dv">3</span>), <span class="at">levels =</span> ethnicities),  <span class="co"># Set factor levels explicitly</span></span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(ethnicities)),  <span class="co"># Repeat subjects</span></span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(avg_reading_scores, avg_writing_scores, avg_math_scores)  <span class="co"># Combine all scores</span></span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Ethnicity, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Ethnicity"</span>,</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Ethnicity"</span>,</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ethnicities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ethnicities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "A" "B" "C" "D" "E"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_math_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_math_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 61.62921 63.45263 64.46395 67.36260 73.82143</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_reading_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_reading_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 64.67416 67.35263 69.10345 70.03053 73.02857</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_writing_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(avg_writing_scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 62.67416 65.60000 67.82759 70.14504 71.40714</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mathMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mathMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 66.089</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(readingMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(readingMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 69.169</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(writingMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(writingMean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 68.054</code></pre>
 </div>
@@ -576,78 +541,253 @@ Attaching package: 'dplyr'</code></pre>
 <h4 class="anchored" data-anchor-id="some-highschool-highschool-some-college-associates-bachelors-masters">some highschool, highschool, some college, associates, bachelors, masters</h4>
 <p>we will now compare the scores based off of the parents education level.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>ReadingByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>WritingByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>MathByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>avgMathsomeHighschool<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>avgReadingsomeHighschool<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>avgWritingsomeHighschool<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>avgMathsHighschool<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>avgReadingHighschool<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>avgWritingHighschool<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>avgMathHighschool<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>avgReadingHighschool<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>avgWritingHighschool<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>avgMathSomeCollege<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some college"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>avgReadingSomeCollege<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some college"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-29"><a href="#cb39-29" aria-hidden="true" tabindex="-1"></a>avgWritingSomeCollege<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some college"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb39-30"><a href="#cb39-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-31"><a href="#cb39-31" aria-hidden="true" tabindex="-1"></a>avgMathAssociates<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"associate's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-32"><a href="#cb39-32" aria-hidden="true" tabindex="-1"></a>avgReadingAssociates<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"associate's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-33"><a href="#cb39-33" aria-hidden="true" tabindex="-1"></a>avgWritingAssociates<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"associate's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb39-34"><a href="#cb39-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-35"><a href="#cb39-35" aria-hidden="true" tabindex="-1"></a>avgMathBachelors<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"bachelor's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-36"><a href="#cb39-36" aria-hidden="true" tabindex="-1"></a>avgReadingBachelors<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"bachelor's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-37"><a href="#cb39-37" aria-hidden="true" tabindex="-1"></a>avgWritingBachelors<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"bachelor's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
-<span id="cb39-38"><a href="#cb39-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-39"><a href="#cb39-39" aria-hidden="true" tabindex="-1"></a>avgMathMasters<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"master's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
-<span id="cb39-40"><a href="#cb39-40" aria-hidden="true" tabindex="-1"></a>avgReadingMasters<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"master's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
-<span id="cb39-41"><a href="#cb39-41" aria-hidden="true" tabindex="-1"></a>avgWritingMasters<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"master's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ReadingByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_reading_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">reading score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>WritingByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_writing_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>MathByEducation<span class="ot">&lt;-</span>students <span class="sc">%&gt;%</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">avg_math_score =</span> <span class="fu">mean</span>(<span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>avgMathsomeHighschool<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>avgReadingsomeHighschool<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>avgWritingsomeHighschool<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>avgMathsHighschool<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>avgReadingHighschool<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>avgWritingHighschool<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>avgMathHighschool<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>avgReadingHighschool<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>avgWritingHighschool<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"high school"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>avgMathSomeCollege<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some college"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>avgReadingSomeCollege<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some college"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>avgWritingSomeCollege<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"some college"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>avgMathAssociates<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"associate's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>avgReadingAssociates<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"associate's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>avgWritingAssociates<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"associate's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>avgMathBachelors<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"bachelor's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>avgReadingBachelors<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"bachelor's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>avgWritingBachelors<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"bachelor's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>avgMathMasters<span class="ot">&lt;-</span>MathByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"master's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_math_score)</span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>avgReadingMasters<span class="ot">&lt;-</span>ReadingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"master's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_reading_score)</span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>avgWritingMasters<span class="ot">&lt;-</span>WritingByEducation <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="st">`</span><span class="at">parental level of education</span><span class="st">`</span> <span class="sc">==</span> <span class="st">"master's degree"</span>) <span class="sc">%&gt;%</span> <span class="fu">pull</span>(avg_writing_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Whole Lot of brute force in those calculations but we have our data, now to the graphs…</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>readingByEducation <span class="ot">&lt;-</span> <span class="fu">c</span>(avgReadingsomeHighschool, avgReadingHighschool, avgReadingSomeCollege, avgReadingAssociates, avgReadingBachelors, avgReadingMasters)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>writingByEducation <span class="ot">&lt;-</span> <span class="fu">c</span>(avgWritingsomeHighschool, avgWritingHighschool, avgWritingSomeCollege, avgWritingAssociates, avgWritingBachelors, avgWritingMasters)</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>mathByEducation <span class="ot">&lt;-</span> <span class="fu">c</span>(avgMathsomeHighschool, avgMathHighschool, avgMathSomeCollege, avgMathAssociates, avgMathBachelors, avgMathMasters)</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>education_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Some High School"</span>, <span class="st">"High School"</span>, <span class="st">"Some College"</span>, <span class="st">"Associates"</span>, <span class="st">"Bachelors"</span>, <span class="st">"Masters"</span>)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Education =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(education_levels, <span class="dv">3</span>), <span class="at">levels =</span> education_levels),  <span class="co"># Set factor levels explicitly</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(education_levels)),  <span class="co"># Repeat subjects</span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(readingByEducation, writingByEducation, mathByEducation)  <span class="co"># Combine all scores</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Education, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Education Level"</span>,</span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Education Level"</span>,</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>readingByEducation <span class="ot">&lt;-</span> <span class="fu">c</span>(avgReadingsomeHighschool, avgReadingHighschool, avgReadingSomeCollege, avgReadingAssociates, avgReadingBachelors, avgReadingMasters)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>writingByEducation <span class="ot">&lt;-</span> <span class="fu">c</span>(avgWritingsomeHighschool, avgWritingHighschool, avgWritingSomeCollege, avgWritingAssociates, avgWritingBachelors, avgWritingMasters)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>mathByEducation <span class="ot">&lt;-</span> <span class="fu">c</span>(avgMathsomeHighschool, avgMathHighschool, avgMathSomeCollege, avgMathAssociates, avgMathBachelors, avgMathMasters)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>education_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Some High School"</span>, <span class="st">"High School"</span>, <span class="st">"Some College"</span>, <span class="st">"Associates"</span>, <span class="st">"Bachelors"</span>, <span class="st">"Masters"</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Education =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(education_levels, <span class="dv">3</span>), <span class="at">levels =</span> education_levels),  <span class="co"># Set factor levels explicitly</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Subject =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Reading"</span>, <span class="st">"Writing"</span>, <span class="st">"Math"</span>), <span class="at">each =</span> <span class="fu">length</span>(education_levels)),  <span class="co"># Repeat subjects</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(readingByEducation, writingByEducation, mathByEducation)  <span class="co"># Combine all scores</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Education, <span class="at">y =</span> Score, <span class="at">fill =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Scores by Education Level"</span>,</span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Education Level"</span>,</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Average Score"</span>) <span class="sc">+</span></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>As we see there is a general trend upwards in all scores comapring with the education level of the parents</p>
 <p>notably those whose parents who did finish highscool did not score as well as those who did not finsih highschool.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ lubridate 1.9.4     ✔ tibble    3.2.1
+✔ purrr     1.0.4     ✔ tidyr     1.3.1
+✔ readr     2.1.5     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>StudentPerformance <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"./datas/StudentsPerformance.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1000 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): gender, race/ethnicity, parental level of education, lunch, test pr...
+dbl (3): math score, reading score, writing score
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>newSP <span class="ot">&lt;-</span> StudentPerformance <span class="sc">|&gt;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_score =</span> (<span class="st">`</span><span class="at">math score</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">reading score</span><span class="st">`</span> <span class="sc">+</span> <span class="st">`</span><span class="at">writing score</span><span class="st">`</span>)<span class="sc">/</span><span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">`</span><span class="at">math score</span><span class="st">`</span>, <span class="sc">-</span><span class="st">`</span><span class="at">writing score</span><span class="st">`</span>, <span class="sc">-</span><span class="st">`</span><span class="at">reading score</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"category"</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>newSP <span class="sc">|&gt;</span></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">'gender'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>mean_score, <span class="at">x =</span> category, <span class="at">fill =</span> category))<span class="sc">+</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Score"</span>,<span class="at">x=</span><span class="st">''</span>, <span class="at">title =</span> <span class="st">"Gender"</span>, <span class="at">fill =</span><span class="st">''</span>)<span class="sc">+</span></span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>newSP <span class="sc">|&gt;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">'race/ethnicity'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>mean_score, <span class="at">x =</span> category, <span class="at">fill=</span>category))<span class="sc">+</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Score"</span>,<span class="at">x=</span><span class="st">''</span>, <span class="at">title =</span> <span class="st">"Race/Ethnicity"</span>)<span class="sc">+</span></span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>newSP <span class="sc">|&gt;</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">'parental level of education'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>mean_score, <span class="at">x =</span> category, <span class="at">fill=</span>category))<span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Score"</span>,<span class="at">x=</span><span class="st">''</span>, <span class="at">title =</span> <span class="st">"Level of Parent's Education"</span>)<span class="sc">+</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>newSP <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">'lunch'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>mean_score, <span class="at">x =</span> category, <span class="at">fill=</span>category))<span class="sc">+</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Score"</span>,<span class="at">x=</span><span class="st">''</span>, <span class="at">title =</span> <span class="st">"Type of Lunch"</span>)<span class="sc">+</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-4.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>newSP <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(variable <span class="sc">==</span> <span class="st">'test preparation course'</span>) <span class="sc">|&gt;</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y=</span>mean_score, <span class="at">x =</span> category, <span class="at">fill=</span>category))<span class="sc">+</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">color =</span> <span class="st">"black"</span>)<span class="sc">+</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Average Score"</span>,<span class="at">x=</span><span class="st">''</span>, <span class="at">title =</span> <span class="st">"Preparation Course"</span>)<span class="sc">+</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-5.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

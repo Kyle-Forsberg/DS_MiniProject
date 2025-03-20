@@ -63,24 +63,13 @@ mathMean <- mean(students$'math score', na.rm = TRUE)
 print(students)
 ```
 
-#### Reading Mean:
-```{r}
-#| echo: false
-print(readingMean)
-```
+## Mean Scores
 
-#### Writing Mean: 
-```{r}
-#| echo: false
-print(writingMean)
-```
+- Mean math score `r mathMean` 
 
-#### Math Mean:
-```{r}
-#| echo: false
-print(mathMean)
+- Mean Reading score `r readingMean`
 
-```
+- Mean writing score `r writingMean`
 
 ## Now that we have all of our means, we can start seeing where the variations lie within attributes
 
@@ -168,9 +157,9 @@ MathByGender<-students %>%
     group_by(`gender`) %>%
     summarise(avg_math_score = mean(`math score`, na.rm = TRUE))
 
-print(MathByGender)
-print(ReadingByGender)
-print(WritingByGender)
+#print(MathByGender)
+#print(ReadingByGender)
+#print(WritingByGender)
 
 avg_writing_male <- WritingByGender %>% filter(`gender` == "male") %>% pull(avg_writing_score)
 avg_writing_female <- WritingByGender %>% filter(`gender` == "female") %>% pull(avg_writing_score)
@@ -377,5 +366,140 @@ As we see there is a general trend upwards in all scores comapring with the educ
 notably those whose parents who did finish highscool did not score as well as those who did not finsih highschool.
 
 
+```{r} 
+
+library(tidyverse) 
+
+StudentPerformance <- readr::read_csv("./datas/StudentsPerformance.csv")
+
+newSP <- StudentPerformance |>
+
+  mutate(mean_score = (`math score` + `reading score` + `writing score`)/3) |>
+
+  select(-`math score`, -`writing score`, -`reading score`) |>
+
+  pivot_longer(cols = 1:5, names_to = "variable", values_to = "category")
+
+ 
+
+newSP |>
+
+    filter(variable == 'gender') |>
+
+    ggplot(aes(y=mean_score, x = category, fill = category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Gender", fill ='')+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
+newSP |>
+
+    filter(variable == 'race/ethnicity') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Race/Ethnicity")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
+newSP |>
+
+    filter(variable == 'parental level of education') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Level of Parent's Education")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
+newSP |>
+
+    filter(variable == 'lunch') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Type of Lunch")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+ 
+
+newSP |>
+
+    filter(variable == 'test preparation course') |>
+
+    ggplot(aes(y=mean_score, x = category, fill=category))+
+
+    geom_boxplot(color = "black")+
+
+    labs(y = "Average Score",x='', title = "Preparation Course")+
+
+    theme_minimal()+
+
+    theme(
+
+    axis.title.x = element_blank(),
+
+    axis.text.x = element_blank(),
+
+    axis.ticks.x = element_blank()
+
+    )
+
+```
 
 
